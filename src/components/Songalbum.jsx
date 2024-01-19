@@ -11,7 +11,7 @@ import { addFavouritesAction } from "../redux/action"
 export function Songalbum({ canzone }) {
     
     const dispatch = useDispatch();
-    const isFav = useSelector((state) => state.favourites.favorites)
+    const isFav = useSelector((state) => state.favourites)
     console.log(isFav)
     return (
 
@@ -23,15 +23,15 @@ export function Songalbum({ canzone }) {
 
             </Link>
             <FontAwesomeIcon onClick={() => {
-                //  if (isFav.includes(canzone.id)) {
-                //      dispatch(removeFavouritesAction(canzone.id))
-                //      console.log("canzone"+canzone+"rimossa")
-                //  }
-                //  else {
+                  if (isFav.favourites.includes(canzone.id)) {
+                      dispatch(removeFavouritesAction(canzone.id))
+                      console.log("canzone"+canzone+"rimossa")
+                  }
+                  else {
                     dispatch(addFavouritesAction(canzone.id))
                     console.log("canzone"+canzone.id+"aggiunta")
                     console.log(isFav)
-                // }
+                 }
             }} icon={faHeart}/>
         </div>
 
