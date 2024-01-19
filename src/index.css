@@ -5,9 +5,145 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: rgb(46, 63, 87);
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.fixed-left{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 230px;
+  flex-flow: column nowrap;
+  align-items: flex-start;
+  background-color: black;
+  z-index: 1200;
+  
+}
+.colLink{
+  color: rgb(145, 145, 145) !important;
+  transition: 0.3s;
+}
+.colLink:hover{
+  color: white !important;
+}
+
+.signup-btn {
+  background-color: white;
+  color: black;
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 180px;
+  margin-bottom: 20px;
+}
+
+.signup-btn:hover {
+  color: white;
+  background-color: rgb(60, 211, 60);
+  border: 1px solid rgb(60, 211, 60);
+}
+
+.login-btn {
+  background-color: black;
+  color: white;
+  border: 1px solid white;
+  border-radius: 20px;
+  width: 180px;
+  margin-bottom: 20px;
+}
+.login-btn:hover {
+  color: black;
+  background-color: white;
+}
+.bottoninav{
+  margin-bottom: 20px;
+  text-align: center;
+}
+.bottoninav a{
+  color: rgb(145, 145, 145);
+}
+
+
+
+
+.bg-container {
+  height: 5.5rem;
+  background-color: #282828;
+}
+
+.playerControls {
+  justify-content: space-between;
+}
+
+.playerControlsimg {
+  width: 14px;
+  margin-top: 1rem;
+  filter: brightness(60%);
+  color: white;
+}
+
+.playerControlsimg:hover {
+  filter: brightness(80%);
+  color: #a59d9d !important;
+}
+
+.barraprogress {
+  color: white;
+  height: 3px;
+  margin-bottom: 20px;
+  color: white;
+}
+
+
+.mainLinks {
+  padding-top: 1.5rem;
+  justify-content: space-evenly;
+}
+
+.mainLinks a {
+  color: white;
+  font-weight: 700;
+  font-size: 12px;
+  opacity: 0.3;
+  text-decoration: none;
+  
+}
+.mainLinks a:hover {
+  text-decoration: none;
+  opacity: 1;
+  transition: 0.3s;
+}
+
+
+.imgLinks a p,
+.mainPage p a {
+  padding-top: 8px;
+  font-size: 12px;
+  color: white;
+  font-weight: 700;
+}
+
+.mainPage p a:hover {
+  color: rgb(138, 138, 138);
+}
+
+.imgLinks a:hover {
+  text-decoration: none;
+}
+
+.imgLinks a img:hover {
+  filter: brightness(50%);
+}
+
+.imgLinks,.titolo{
+  color: white;
+  font-weight: 700;
+  padding-top: 50px;
 }
