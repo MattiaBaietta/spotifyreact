@@ -2,6 +2,7 @@ import { ADD_FAVOURITES, REMOVE_FAVOURITES } from "../action";
 
 const initialState = {
   favourites: [],
+
 };
 
 const favouritesReducer = (state = initialState, action) => {
@@ -18,6 +19,7 @@ const favouritesReducer = (state = initialState, action) => {
           (song) => song !== action.payload
         ),
       };
+      
     default:
       return state;
   }

@@ -1,40 +1,60 @@
 import { Link } from "react-router-dom"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
-import { faHeart } from "@fortawesome/free-solid-svg-icons"
+import { faHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as faHeartEmpty } from "@fortawesome/free-regular-svg-icons"; // Icona vuota
 import { useDispatch } from 'react-redux'
 import { useSelector } from 'react-redux'
-import { removeFavouritesAction } from "../redux/action"
+import { pickSongAction, removeFavouritesAction } from "../redux/action"
 import { addFavouritesAction } from "../redux/action"
 
 
 
 export function Songalbum({ canzone }) {
-    
+
     const dispatch = useDispatch();
     const isFav = useSelector((state) => state.favourites)
-    console.log(isFav)
+    const actualsong=useSelector((state)=>state.song)
+
+    const addItemToLocalStorage = (song) => {
+        localStorage.setItem(song.id, JSON.stringify(song));
+    };
+
+    const getItemFromLocalStorage = (id) => {
+        const storedData = localStorage.getItem(id);
+        return storedData ? JSON.parse(storedData) : null;
+    };
+
+    const removeItemFromLocalStorage = (id) => {
+        localStorage.removeItem(id);
+    };
+
+
     return (
-
-        <div className="py-3 trackHover"
-            
-        >
-            <Link to="preview canzone da implementare">
-                <h2>{canzone.title}</h2>
-
-            </Link>
-            <FontAwesomeIcon onClick={() => {
-                  if (isFav.favourites.includes(canzone.id)) {
-                      dispatch(removeFavouritesAction(canzone.id))
-                      console.log("canzone"+canzone+"rimossa")
-                  }
-                  else {
-                    dispatch(addFavouritesAction(canzone.id))
-                    console.log("canzone"+canzone.id+"aggiunta")
-                    console.log(isFav)
-                 }
-            }} icon={faHeart}/>
+        <div className="  text-white d-flex py-3 trackHover">
+            <div>
+                <h2  onClick={()=>{
+                    dispatch(pickSongAction(canzone))
+                    console.log(actualsong)
+                }}>{canzone.title}</h2>
+            </div>
+            <FontAwesomeIcon
+                onClick={() => {
+                    
+                    if (getItemFromLocalStorage(canzone.id)) {
+                        removeItemFromLocalStorage(canzone.id);
+                        dispatch(removeFavouritesAction(canzone.id));
+                        
+                        console.log("canzone " + canzone.id + " rimossa");
+                    } else {
+                        addItemToLocalStorage(canzone);
+                        dispatch(addFavouritesAction(canzone.id));
+                        console.log("canzone " + canzone.id + " aggiunta");
+                    }
+                }}
+                style={{ color: "green" }}
+                icon={getItemFromLocalStorage(canzone.id) ? faHeart : faHeartEmpty}
+            />
         </div>
-
-    )
+    );
 }
 

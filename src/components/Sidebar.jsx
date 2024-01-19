@@ -4,7 +4,8 @@ import { Col, Nav, Navbar, Container, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBookOpen, faHouse } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+
 
 
 
@@ -34,10 +35,10 @@ export function Sidebar() {
                     <Navbar href="/" className="colLink">
                         <Container>
                             
-                                <div >
+                                <Link to="/" >
                                     <FontAwesomeIcon icon={faHouse} />&nbsp;
                                     Home
-                                </div>
+                                </Link>
                             
                         </Container>
                     </Navbar>
@@ -46,10 +47,10 @@ export function Sidebar() {
                     <Navbar className="colLink">
                         <Container>
                             
-                                <div>
+                                <Link to="/library">
                                     <FontAwesomeIcon icon={faBookOpen} />&nbsp;
                                     Your Library
-                                </div>
+                                </Link>
                             
                         </Container>
                     </Navbar>

@@ -7,6 +7,7 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import { Albumpage } from "./components/Albumpage";
 import { Navtop } from "./components/Navtop";
 import { Artistpage } from "./components/Artistpage";
+import { Favpage } from "./components/Favpage";
 
 function App() {
   return (
@@ -32,6 +33,11 @@ function App() {
                 </Route> 
                 <Route path="/artist/:name" element={
                   <Artistpage/>
+                }>
+  
+                </Route> 
+                <Route path="/library" element={
+                  <Favpage/>
                 }>
   
                 </Route> 

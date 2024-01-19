@@ -38,7 +38,7 @@ export function Albumpage() {
             // Visualizza l'indicazione di caricamento
             <p>Caricamento...</p>):(
             <Row>
-                <Col className="col-md-3 pt-5 text-center" id="img-container">
+                <Col className="col-md-3 pt-5 text-center text-white" id="img-container">
                     {album && <>
                         <img src={album.cover} className="card-img img-fluid" alt="Album" />
                             <div className="mt-4 text-center">
@@ -62,7 +62,6 @@ export function Albumpage() {
                                 </Col>
                             </Row>
                             </Col>
-    
             </Row>)}
         </>
 

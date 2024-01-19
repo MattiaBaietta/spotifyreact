@@ -147,3 +147,10 @@ code {
   font-weight: 700;
   padding-top: 50px;
 }
+
+.rightfix{
+  position: fixed;
+  right:0px;
+   
+    
+}

@@ -26,20 +26,3 @@ export function Song({song}){
 
 
 
-        //   <div class="col text-center" id=${songInfo.id}>
-        //     <a href="/album_page.html?id=${songInfo.album.id}">
-        //       <img class="img-fluid" src=${songInfo.album.cover_medium
-        // } alt="1" />
-        //     </a>
-        //     <p>
-        //       <a href="/album_page.html?id=${songInfo.album.id}">
-        //         Album: "${songInfo.album.title.length < 16
-        //   ? `${songInfo.album.title}`
-        //   : `${songInfo.album.title.substring(0, 16)}...`
-        // }"<br>
-        //       </a>
-        //       <a href="/artist_page.html?id=${songInfo.artist.id}">
-        //         Artist: ${songInfo.artist.name}
-        //       </a>
-        //     </p>
-        //   </div>`

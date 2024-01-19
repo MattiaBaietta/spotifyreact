@@ -1,34 +1,58 @@
-import { Container,Col,Row,ProgressBar } from "react-bootstrap";
+import { Container, Col, Row, ProgressBar } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlay,faShuffle,faForward,faBackward } from "@fortawesome/free-solid-svg-icons";
+import { faPlay, faShuffle, faForward, faBackward } from "@fortawesome/free-solid-svg-icons";
+
+import { useSelector } from 'react-redux'
+import { useState } from "react";
 
 
 
-export function Player(){
-    return(
-        <Container fluid className="fixed-bottom bg-container pt-1">
+
+export function Player() {
+  const actualsong = useSelector((state) => state.song.song[0])
+
+
+
+  return (
+    <Container fluid className="fixed-bottom bg-container pt-1">
+      <Row>
+        <Col className="col-lg-10 ">
           <Row>
-            <Col className="col-lg-10 offset-lg-2">
-              <Row>
-                <Col className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5  mt-1"> 
-                  <Row className=" .playerControls">
-                    <Col><FontAwesomeIcon  className="playerControlsimg" icon={faShuffle}/></Col>
-                    <Col><FontAwesomeIcon className="playerControlsimg" icon={faBackward}/></Col>
-                    <Col><FontAwesomeIcon className="playerControlsimg" icon={faPlay}/></Col>
-                   <Col> <FontAwesomeIcon className="playerControlsimg" icon={faForward}/></Col>
-                  </Row>
-                </Col>
-              </Row>
-              <Row className="justify-content-center  py-3">
-                <div className="col-8 col-md-6 barraprogress">
-                  <ProgressBar />
-                </div>
+            <Col className="col-6 col-md-4 col-lg-2 offset-3 offset-md-4 offset-lg-5  mt-1">
+              <Row className=" .playerControls">
+                <Col><FontAwesomeIcon className="playerControlsimg" icon={faShuffle} /></Col>
+                <Col><FontAwesomeIcon className="playerControlsimg" icon={faBackward} /></Col>
+                <Col><FontAwesomeIcon  className="playerControlsimg" icon={faPlay} /></Col>
+                <Col> <FontAwesomeIcon className="playerControlsimg" icon={faForward} /></Col>
+                
               </Row>
             </Col>
           </Row>
-        </Container>
+          <Row className="justify-content-center  py-3">
+            <div className="col-8 col-md-6 barraprogress">
+              <ProgressBar />
+            </div>
+          </Row>
+
+        </Col>
+        <Col className="col-lg-2">
+        {actualsong && (
+                  <div className="d-flex m-2">
+                    
+                    <div className="mx-4">
+                      <h5 className="" style={{color:"white"}}>{actualsong.title}</h5>
+                      <h5 className="" style={{color:"white"}}>{actualsong.artist.name}</h5>
+                    </div>
+                    <img src={actualsong.album.cover_small} alt="" srcset="" />
+                  </div>
+                   
+)}
+        </Col>
         
-    )
+      </Row>
+    </Container>
+
+  )
 }
 
 
